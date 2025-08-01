@@ -1,0 +1,283 @@
+/* Base Styles */
+:root {
+  --primary-color: #c0a062;
+  --primary-dark: #a08652;
+  --primary-light: #e0c082;
+  --secondary-color: #333333;
+  --light-color: #f8f9fa;
+  --dark-color: #212529;
+  --white: #ffffff;
+  --black: #000000;
+  --gray: #6c757d;
+  --light-gray: #e9ecef;
+  --transition: all 0.3s ease;
+  --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --box-shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: var(--dark-color);
+  background-color: var(--white);
+  overflow-x: hidden;
+}
+
+/* Section Styles */
+.section {
+  padding: 4rem 0;
+  position: relative;
+}
+
+.section.bg-light {
+    background-color: var(--light-gray) !important;
+    padding: 3rem;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* Price Ticker - Now respects container */
+.gold-price-ticker {
+  background-color: var(--secondary-color);
+  color: var(--white);
+  padding: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.ticker-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Hero Section Styles for Boxed Layout */
+.gold-hero, .necklace-hero {
+  /* FIXED: Replaced broken placeholder with the correct local background image */
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('hero-bg.jpg') no-repeat center center/cover;
+  color: var(--white);
+  position: relative;
+  width: 100%;
+  min-height: auto;
+  padding: 3rem;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.hero-title {
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+}
+
+.hero-subtitle {
+  font-weight: 300;
+  opacity: 0.9;
+  max-width: 600px;
+}
+
+.hero-image-container {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: var(--box-shadow-lg);
+}
+
+.hero-image {
+  border-radius: 0.5rem;
+  box-shadow: var(--box-shadow-lg);
+  width: 100%;
+  max-height: 450px;
+  object-fit: cover;
+}
+
+.trust-badges, .trust-badges-annaprashan {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Product Cards remain the same, they are well-styled */
+.product-card {
+  background-color: var(--white);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: var(--transition);
+  box-shadow: var(--box-shadow);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--box-shadow-lg);
+}
+.product-img-container {
+  position: relative;
+  overflow: hidden;
+  padding-top: 100%;
+}
+.product-img {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.product-card:hover .product-img {
+  transform: scale(1.05);
+}
+.product-badge {
+  position: absolute;
+  top: 15px; left: 15px;
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  z-index: 2;
+}
+.product-body {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.product-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.product-actions {
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+/* Weight Filter Section */
+.weight-filter-section {
+    padding-top: 0;
+    padding-bottom: 2rem;
+}
+.weight-filter-container {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--box-shadow);
+}
+.filter-title {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+.weight-filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.weight-filter-btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  border-radius: 50px;
+  border: 1px solid var(--primary-color);
+  background: transparent;
+  color: var(--primary-color);
+  transition: var(--transition);
+  cursor: pointer;
+}
+.weight-filter-btn:hover, .weight-filter-btn.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+.weight-filter-btn.reset-filter {
+  border-color: var(--gray);
+  color: var(--gray);
+}
+.weight-filter-btn.reset-filter:hover {
+  background-color: var(--gray);
+  color: white;
+}
+
+/* Other sections inside container */
+.cta-section {
+    border-radius: 1rem;
+}
+.gold-benefits-section {
+    padding-bottom: 0;
+}
+
+/* Preview Modal (no changes, should remain full-screen) */
+.preview-modal {
+  position: fixed; top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex; justify-content: center; align-items: center;
+  z-index: 2000;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+.preview-modal.show { opacity: 1; visibility: visible; }
+.preview-content {
+  position: relative; max-width: 90vw; max-height: 90vh;
+  width: 800px; background-color: var(--white);
+  border-radius: 0.5rem; padding: 1rem;
+}
+.close-preview {
+  position: absolute; top: 15px; right: 15px;
+  background: none; border: none; font-size: 1.5rem;
+  color: var(--secondary-color); cursor: pointer; z-index: 2010;
+}
+.preview-image-container {
+  max-width: 100%; max-height: 100%;
+}
+.preview-img {
+  max-width: 100%; max-height: calc(85vh - 40px);
+  object-fit: contain; border-radius: 0.5rem;
+}
+.preview-info {
+  position: absolute; bottom: 0; left: 0; width: 100%;
+  background: rgba(0, 0, 0, 0.6); color: var(--white);
+  padding: 0.75rem; display: flex; justify-content: space-between;
+  align-items: center; font-size: 1rem;
+}
+.preview-navigation {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 50px; height: 50px; background: rgba(0, 0, 0, 0.5);
+  color: var(--white); border-radius: 50%; display: flex;
+  align-items: center; justify-content: center; font-size: 1.5rem;
+  cursor: pointer; transition: var(--transition); z-index: 2010;
+}
+.preview-navigation:hover { background: var(--primary-color); }
+.preview-navigation.left { left: 20px; }
+.preview-navigation.right { right: 20px; }
+
+
+/* Responsive Adjustments */
+@media (max-width: 767.98px) {
+  .hero-subtitle { font-size: 1rem; }
+  .section, .section.bg-light { padding: 1.5rem; margin-bottom: 1.5rem; }
+  .gold-hero, .necklace-hero { padding: 1.5rem; }
+  .ticker-content { flex-direction: column; gap: 0.3rem; }
+  .preview-navigation { width: 40px; height: 40px; font-size: 1.2rem; left: 10px; }
+  .preview-navigation.right { left: auto; right: 10px; }
+}
+
+@media (max-width: 575.98px) {
+  .weight-filter-btn { flex-grow: 1; flex-basis: auto; }
+  .weight-filter-btn.reset-filter { flex-basis: 100%; }
+  .preview-navigation { width: 35px; height: 35px; font-size: 1rem; left: 5px; }
+  .preview-navigation.right { left: auto; right: 5px; }
+  .preview-info { flex-direction: column; align-items: flex-start; padding: 0.5rem; }
+}
